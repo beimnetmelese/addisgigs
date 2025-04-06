@@ -9,6 +9,7 @@ function Hero() {
   return (
     <>
       <Box
+        bg="black"
         marginTop={marginTop}
         marginLeft={margin}
         marginRight={margin}

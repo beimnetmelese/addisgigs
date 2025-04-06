@@ -87,7 +87,7 @@ function AboutUs() {
           area={"topright"}
         >
           <Show above="lg">
-            <Box textAlign={"center"}>
+            <Box bg="black" textAlign={"center"}>
               <WhyChooseUs
                 number={1}
                 title="Expertise Across Platforms"
@@ -123,6 +123,7 @@ function AboutUs() {
 
         <GridItem area={"main"}>
           <Box
+            bg="black"
             marginLeft={"8%"}
             marginRight={"4%"}
             display={{ base: "block", lg: "none" }}

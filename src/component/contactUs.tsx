@@ -10,15 +10,7 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
-import {
-  FaPhone,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 function ContactUs() {
   return (
@@ -50,7 +42,7 @@ function ContactUs() {
           <Heading color={"blue.300"} fontSize="3xl" fontWeight="bold">
             CONTACT US
           </Heading>
-          <Text fontSize="sm" color="gray.300">
+          <Text fontSize="sm" color="gray.100">
             Reach out to us and we’ll get back to you as soon as possible.
           </Text>
 
@@ -83,13 +75,6 @@ function ContactUs() {
               <Text fontSize="sm">beimnetmelese16@gmail.com</Text>
             </HStack>
           </Box>
-
-          <HStack pt={4} spacing={4}>
-            <Icon as={FaFacebook} boxSize={5} cursor="pointer" />
-            <Icon as={FaTwitter} boxSize={5} cursor="pointer" />
-            <Icon as={FaInstagram} boxSize={5} cursor="pointer" />
-            <Icon as={FaLinkedin} boxSize={5} cursor="pointer" />
-          </HStack>
         </VStack>
 
         {/* Right Side (Form) */}
