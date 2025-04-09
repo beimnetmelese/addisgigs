@@ -1,4 +1,3 @@
-// ContactSection.tsx
 import {
   Box,
   Flex,
@@ -9,10 +8,47 @@ import {
   Icon,
   Input,
   Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 function ContactUs() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [formData, setFormData] = useState({
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: any) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const form = e.target;
+
+    // Submit the form using JS
+    fetch("https://formsubmit.co/beimnetmelese16@gmail.com", {
+      method: "POST",
+      body: new FormData(form),
+    })
+      .then(() => {
+        onOpen();
+        setFormData({ email: "", subject: "", message: "" });
+      })
+      .catch((err) => {
+        console.error("Form submission error:", err);
+      });
+  };
+
   return (
     <Flex
       color="white"
@@ -80,7 +116,7 @@ function ContactUs() {
         {/* Right Side (Form) */}
         <Box
           flex="1"
-          bg="rgba(255, 255, 255, 0.05)" // transparent effect
+          bg="rgba(255, 255, 255, 0.05)"
           boxShadow="0 4px 30px rgba(0, 0, 0, 0.5)"
           borderRadius="xl"
           p={8}
@@ -88,42 +124,70 @@ function ContactUs() {
           <Heading color={"blue.300"} fontSize="xl" mb={5}>
             GET IN TOUCH
           </Heading>
-          <VStack spacing={4}>
-            <Input
-              border="none"
-              bg="rgba(255, 255, 255, 0.00)"
-              borderBottom={"1px solid"}
-              borderBottomWidth={"1px"}
-              placeholder="Email"
-              variant="filled"
-              _placeholder={{ color: "gray.300" }}
-            />
-            <Input
-              border="none"
-              bg="rgba(255, 255, 255, 0.00)"
-              borderBottom={"1px solid"}
-              borderBottomWidth={"1px"}
-              borderColor={"white"}
-              placeholder="Subject"
-              variant="filled"
-              _placeholder={{ color: "gray.300" }}
-            />
 
-            <Input
-              placeholder="Message"
-              variant="filled"
-              border="none"
-              bg="rgba(255, 255, 255, 0.00)"
-              borderBottom={"1px solid"}
-              borderBottomWidth={"1px"}
-              _placeholder={{ color: "gray.300" }}
-            />
-            <Button bg={"blue.600"} w="full" mt={2}>
-              Send Message
-            </Button>
-          </VStack>
+          <form onSubmit={handleSubmit}>
+            <VStack spacing={4}>
+              <Input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                border="none"
+                bg="rgba(255, 255, 255, 0.00)"
+                borderBottom="1px solid"
+                placeholder="Email"
+                variant="filled"
+                required
+                _placeholder={{ color: "gray.300" }}
+              />
+              <Input
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                border="none"
+                bg="rgba(255, 255, 255, 0.00)"
+                borderBottom="1px solid"
+                borderColor="white"
+                placeholder="Subject"
+                variant="filled"
+                required
+                _placeholder={{ color: "gray.300" }}
+              />
+              <Input
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Message"
+                variant="filled"
+                border="none"
+                bg="rgba(255, 255, 255, 0.00)"
+                borderBottom="1px solid"
+                required
+                _placeholder={{ color: "gray.300" }}
+              />
+              {/* Hidden input to disable CAPTCHA */}
+              <input type="hidden" name="_captcha" value="false" />
+              <Button bg={"blue.600"} w="full" mt={2} type="submit">
+                Send Message
+              </Button>
+            </VStack>
+          </form>
         </Box>
       </Flex>
+
+      {/* Success Modal */}
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent bg="#0a0a0a" color="white">
+          <ModalHeader color="blue.300">Message Sent</ModalHeader>
+          <ModalBody>Your message has been sent successfully!</ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Flex>
   );
 }

@@ -5,6 +5,7 @@ import book from "../assets/bookethiopia.jpg";
 import aastu from "../assets/aastu.jpg";
 import mentorix from "../assets/mentorix.jpg";
 import movie from "../assets/movie.jpg";
+import job from "../assets/job.jpg";
 import { FaArrowRight } from "react-icons/fa";
 import TextComponent from "./textComponent";
 
@@ -87,45 +88,50 @@ function Portofolio() {
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing="20px">
           <PortofolioCard
             title="AddisGigs"
-            description="AddisGigs is a dynamic freelancing agency specializing in the development of mobile apps, Telegram bots, and full-stack web applications. With a strong focus on innovative solutions and seamless user experiences, AddisGigs helps businesses and individuals bring their digital ideas to life, providing high-quality, efficient, and scalable services tailored to every project."
+            description="AddisGigs is a freelancing agency that builds mobile apps, Telegram bots, and full-stack web apps delivering fast, scalable, and user-focused digital solutions."
             image={addis}
             link="#"
           />
           <PortofolioCard
             title="Book Ethiopia"
-            description="Book Ethiopia is an online platform designed to simplify hotel bookings across Ethiopia. Users can easily browse through a wide selection of hotels, compare options, and book their stay at the best prices. Whether you're visiting for business or leisure, Book Ethiopia offers a seamless booking experience, helping you find the perfect accommodation for your needs."
+            description="Book Ethiopia is a platform that makes hotel booking in Ethiopia easy. Browse, compare, and book hotels at the best prices for business or leisure stays."
             image={book}
             link="https://book-ethiopia.vercel.app/"
           />
           <PortofolioCard
             title="Mentorix Employee Bot"
-            description="Mentorix is a Telegram bot that allows users to easily register as tutors. Through this platform, tutors can create profiles, offering their expertise in various subjects, and connect with learners seeking guidance. Mentorix streamlines the process, making it simple for both tutors and students to interact and start their educational journey."
+            description="Mentorix is a Telegram bot that connects tutors with students. Tutors can easily register, create profiles, and offer their expertise, making learning accessible and hassle-free."
             image={mentorix}
             link="https://t.me/MentorixEmployeeBot"
           />
           <PortofolioCard
             title="Mentorix Client Bot"
-            description="Mentorix Client Bot is a Telegram bot designed for clients to easily find and connect with qualified tutors. Clients can search for tutors based on their needs, browse through available profiles, and get matched with the perfect tutor for personalized learning experiences. The bot simplifies the process of finding and booking tutors, making education more accessible and convenient."
+            description="Mentorix Client Bot helps users find and connect with qualified tutors on Telegram."
             image={mentorix}
             link="https://t.me/MentorixClientBot"
           />
           <PortofolioCard
+            title="Job Notify"
+            description="JobNotify is a Telegram bot that sends job alerts based on your selected preferences, making it easy to discover relevant opportunities tailored to your interests."
+            image={job}
+            link="https://t.me/Job_NotifyBot"
+          />
+          <PortofolioCard
+            title="AASTU Lost And Found"
+            description="AAStU Lost and Found Bot is a Telegram bot for AAStU students and staff to report and recover lost items. It simplifies matching lost belongings with their rightful owners for a quicker, easier recovery."
+            image={aastu}
+            link="https://t.me/aastulostandfoundunionbot"
+          />
+          <PortofolioCard
             title="ScoreSnap"
-            description="Score Snap is a Telegram bot that delivers live football results and updates. Users can quickly check scores from ongoing matches, view recent results, and stay up-to-date with their favorite teams and tournaments. Score Snap makes following football easy and convenient, providing real-time information directly through Telegram."
+            description="Score Snap is a Telegram bot that provides live football scores, recent results, and real-time updates making it easy to stay connected with your favorite teams and matches."
             image={scoresnap}
             link="https://t.me/Scoresnapresultbot"
           />
 
           <PortofolioCard
-            title="AASTU Lost And Found"
-            description="AAstu Lost and Found Bot is a Telegram bot designed to help students and staff of AAStU (Addis Ababa Science and Technology University) report and recover lost items. Users can easily submit information about lost or found items, and the bot helps match lost items with their rightful owners. This bot creates a convenient and efficient way for the AAStU community to reunite with their belongings."
-            image={aastu}
-            link="https://t.me/aastulostandfoundunionbot"
-          />
-
-          <PortofolioCard
             title="MovieMate"
-            description="MovieMate is a movie recommendation bot that suggests films based on the genres users like. Whether you're into action, comedy, drama, or any other genre, MovieMate helps you discover new movies tailored to your preferences, making it easier to find the perfect film for your next movie night."
+            description="MovieMate is a Telegram bot that recommends movies based on your favorite genres, helping you discover the perfect film for any mood or movie night."
             image={movie}
             link="https://t.me/MovieMatePybot"
           />

@@ -70,18 +70,13 @@ function AboutUs() {
           lg: `"topleft topright"`,
         }}
       >
-        <GridItem
-          marginBottom={"30px"}
-          margin={"10px"}
-          marginLeft={"10px"}
-          area={"topleft"}
-        >
+        <GridItem marginBottom={"30px"} marginLeft={"10px"} area={"topleft"}>
           <Show above="lg">
             <Image src={logo} boxSize={"500px"} />
           </Show>
         </GridItem>
         <GridItem
-          marginTop={"70px"}
+          marginTop={"10px"}
           marginBottom={"30px"}
           marginLeft={"10px"}
           area={"topright"}
