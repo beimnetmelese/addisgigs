@@ -6,6 +6,9 @@ import aastu from "../assets/aastu.jpg";
 import mentorix from "../assets/mentorix.jpg";
 import movie from "../assets/movie.jpg";
 import job from "../assets/job.jpg";
+import tv from "../assets/TV.jpg";
+import feedflow from "../assets/feedflow.jpg";
+import tom from "../assets/tom.jpg";
 import { FaArrowRight } from "react-icons/fa";
 import TextComponent from "./textComponent";
 
@@ -97,6 +100,30 @@ function Portofolio() {
             description="Book Ethiopia is a platform that makes hotel booking in Ethiopia easy. Browse, compare, and book hotels at the best prices for business or leisure stays."
             image={book}
             link="https://book-ethiopia.vercel.app/"
+          />
+          <PortofolioCard
+            title="Stream Bot"
+            description="sleek, dark-themed React and Tailwind CSS interface for managing and viewing live and planned streams."
+            image={tv}
+            link="https://tvapp-kappa.vercel.app/"
+          />
+          <PortofolioCard
+            title="Digital Pet Twin"
+            description="Digital Pet Twin is an AI-based 3D web app that brings a virtual cat to life with real emotions, intelligent conversations, and memory."
+            image={tom}
+            link="https://digital-pet-twin.vercel.app/"
+          />
+          <PortofolioCard
+            title="Smart Feedback Assistant"
+            description="Smart Feedback Assistant is an AI-powered system that helps businesses manage customer questions and feedback. "
+            image={feedflow}
+            link="https://feed-flow-ten.vercel.app/"
+          />
+          <PortofolioCard
+            title="MovieMate"
+            description="MovieMate is a Telegram bot that recommends movies based on your favorite genres, helping you discover the perfect film for any mood or movie night."
+            image={movie}
+            link="https://t.me/MovieMatePybot"
           />
           <PortofolioCard
             title="Mentorix Employee Bot"
