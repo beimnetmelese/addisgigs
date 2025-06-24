@@ -46,7 +46,7 @@ function Hero() {
         </Text>
         <Box marginBottom={"60px"} textAlign={"center"}>
           <CustomButton
-            title="Hire Us"
+            title="Contact Us"
             animation={true}
             height="50px"
             width="200px"

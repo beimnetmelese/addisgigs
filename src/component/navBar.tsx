@@ -107,7 +107,7 @@ function NavBar() {
       ) : (
         <>
           <HStack spacing={8}>{sections.map(renderNavItem)}</HStack>
-          <CustomButton title="Hire Us" animation={false} />
+          <CustomButton title="Contact Us" animation={false} />
         </>
       )}
     </HStack>

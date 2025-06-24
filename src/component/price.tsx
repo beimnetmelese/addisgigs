@@ -107,7 +107,7 @@ function Price() {
               "Full deployment and documentation",
               "Ongoing support available",
             ]}
-            buttonText="Hire Us"
+            buttonText="Contact Us"
           />
           <PricingCard
             title="Mobile Application Plan"
@@ -122,7 +122,7 @@ function Price() {
               "App Store & Play Store deployment",
               "Full documentation and support",
             ]}
-            buttonText="Hire Us"
+            buttonText="Contact Us"
           />
           <PricingCard
             title="Telegram Bot Plan"
@@ -137,7 +137,7 @@ function Price() {
               "Web Applications",
               "Full documentation and support",
             ]}
-            buttonText="Hire us"
+            buttonText="Contact Us"
           />
         </SimpleGrid>
       </Flex>

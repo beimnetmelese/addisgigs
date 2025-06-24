@@ -106,7 +106,7 @@ function AboutUs() {
             </Box>
             <Box marginBottom={"60px"} marginTop={"50px"}>
               <CustomButton
-                title="Hire Us"
+                title="Contact Us"
                 animation={true}
                 height="50px"
                 width="200px"
@@ -145,7 +145,7 @@ function AboutUs() {
             />
             <Box textAlign={"center"} marginBottom={"60px"} marginTop={"50px"}>
               <CustomButton
-                title="Hire Us"
+                title="Contact Us"
                 animation={true}
                 height="50px"
                 width="200px"
