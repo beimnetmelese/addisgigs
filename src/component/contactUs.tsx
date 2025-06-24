@@ -36,7 +36,7 @@ function ContactUs() {
     const form = e.target;
 
     // Submit the form using JS
-    fetch("https://formsubmit.co/beimnetmelese16@gmail.com", {
+    fetch("https://formsubmit.co/addisgigs@gmail.com", {
       method: "POST",
       body: new FormData(form),
     })
@@ -108,7 +108,7 @@ function ContactUs() {
             </Heading>
             <HStack spacing={2}>
               <Icon as={FaEnvelope} />
-              <Text fontSize="sm">beimnetmelese16@gmail.com</Text>
+              <Text fontSize="sm">addisgigs@gmail.com</Text>
             </HStack>
           </Box>
         </VStack>
