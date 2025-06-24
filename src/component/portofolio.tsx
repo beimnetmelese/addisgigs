@@ -1,6 +1,6 @@
 import { Box, Text, Image, SimpleGrid, Flex } from "@chakra-ui/react";
 import scoresnap from "../assets/scoresnap.jpg";
-import addis from "../assets/addis.jpg";
+import addis from "../assets/addisgigs.png";
 import book from "../assets/bookethiopia.jpg";
 import aastu from "../assets/aastu.jpg";
 import mentorix from "../assets/mentorix.jpg";

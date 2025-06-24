@@ -8,7 +8,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logos.png";
 import CustomButton from "./customButton";
 import TextComponent from "./textComponent";
 

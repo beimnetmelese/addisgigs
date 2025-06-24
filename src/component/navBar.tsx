@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import { useEffect, useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logos.png";
 import CustomButton from "./customButton";
 
 const sections = [
