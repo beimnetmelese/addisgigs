@@ -66,17 +66,22 @@ export const PricingCard: React.FC<PricingCardProps> = ({
             </ListItem>
           ))}
         </List>
-        <Button
-          animation={`${glowAnimation} 2s infinite ease-in-out`}
-          _hover={{ bg: "blue.600", animation: "none" }}
-          w="full"
-          mt="4"
-          color={"white"}
-          bg={"blue.600"}
-          borderRadius="full"
+        <a
+          href="https://t.me/AddisGigsBot"
+          style={{ display: "block", width: "100%" }}
         >
-          {buttonText}
-        </Button>
+          <Button
+            animation={`${glowAnimation} 2s infinite ease-in-out`}
+            _hover={{ bg: "blue.600", animation: "none" }}
+            w="full"
+            mt="4"
+            color="white"
+            bg="blue.600"
+            borderRadius="full"
+          >
+            {buttonText}
+          </Button>
+        </a>
       </VStack>
     </Box>
   );

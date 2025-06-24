@@ -21,7 +21,7 @@ function CustomButton({
   height = false,
 }: Props) {
   return (
-    <a href="https://t.me/Elkun1610">
+    <a href="https://t.me/AddisGigsBot">
       <Button
         bg="blue.500"
         color="white"
