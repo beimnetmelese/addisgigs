@@ -1,3 +1,4 @@
+// component/textComponent.tsx
 import { Text, useBreakpointValue } from "@chakra-ui/react";
 
 interface TextComponentProps {

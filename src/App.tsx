@@ -1,58 +1,104 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+// App.tsx
+import { Box, VStack } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./component/navBar";
 import Hero from "./component/hero";
 import Service from "./component/service";
-import Portofolio from "./component/portofolio";
 import Price from "./component/price";
 import AboutUs from "./component/aboutUs";
 import ContactUs from "./component/contactUs";
 import FloatingIcons from "./component/floatingIcons";
+import Portfolio from "./component/portofolio";
+import Testimonials from "./component/testimonials";
+import Footer from "./component/footer";
 
 function App() {
   return (
-    <>
+    <Box
+      bg="#0a0a0f"
+      minH="100vh"
+      overflowX="hidden"
+      display="flex"
+      flexDirection="column"
+    >
       <FloatingIcons />
-      <Grid
-        templateAreas={{
-          lg: `"nav" "main"`,
-        }}
-        height={"100hv"}
+      <Box
+        position="fixed"
+        top={0}
+        left={0}
+        right={0}
+        zIndex={30}
+        backdropFilter="blur(20px)"
+        bg="rgba(10, 10, 15, 0.85)"
+        borderBottom="1px solid rgba(255,255,255,0.05)"
       >
-        <GridItem
-          bg="rgba(255, 255, 255,1)" // transparent effect
-          boxShadow="0 4px 30px rgba(0, 0, 0, 0.5)"
-          width={"100%"}
-          position={"fixed"}
-          zIndex={3}
-          area={"nav"}
-          background="inherit"
-        >
-          <NavBar />
-        </GridItem>
+        <NavBar />
+      </Box>
 
-        <GridItem marginTop={"5%"} area={"main"}>
-          <div id="home" style={{ scrollMarginTop: "140px" }}>
-            <Hero />
-          </div>
-          <div id="service" style={{ scrollMarginTop: "65px" }}>
-            <Service />
-          </div>
-          <div id="portofolio" style={{ scrollMarginTop: "65px" }}>
-            <Portofolio />
-          </div>
-          <div id="price" style={{ scrollMarginTop: "65px" }}>
-            <Price />
-          </div>
-          <div id="why-choose-us" style={{ scrollMarginTop: "65px" }}>
-            <AboutUs />
-          </div>
-          <div id="contact" style={{ scrollMarginTop: "65px" }}>
-            <ContactUs />
-          </div>
-        </GridItem>
-      </Grid>
-    </>
+      <VStack spacing={0} align="stretch" flex="1">
+        {/* Hero - Full width, no padding */}
+        <Box id="home" as="section">
+          <Hero />
+        </Box>
+
+        {/* Other sections with padding */}
+        <Box
+          id="service"
+          as="section"
+          px={{ base: "20px", md: "60px", xl: "100px" }}
+          py={{ base: "40px", md: "60px" }}
+        >
+          <Service />
+        </Box>
+
+        <Box
+          id="portfolio"
+          as="section"
+          px={{ base: "20px", md: "60px", xl: "100px" }}
+          py={{ base: "40px", md: "60px" }}
+        >
+          <Portfolio />
+        </Box>
+
+        <Box
+          id="price"
+          as="section"
+          px={{ base: "20px", md: "60px", xl: "100px" }}
+          py={{ base: "40px", md: "60px" }}
+        >
+          <Price />
+        </Box>
+
+        <Box
+          id="testimonials"
+          as="section"
+          px={{ base: "20px", md: "60px", xl: "100px" }}
+          py={{ base: "40px", md: "60px" }}
+        >
+          <Testimonials />
+        </Box>
+
+        <Box
+          id="why-choose-us"
+          as="section"
+          px={{ base: "20px", md: "60px", xl: "100px" }}
+          py={{ base: "40px", md: "60px" }}
+        >
+          <AboutUs />
+        </Box>
+
+        <Box
+          id="contact"
+          as="section"
+          px={{ base: "20px", md: "60px", xl: "100px" }}
+          py={{ base: "40px", md: "60px" }}
+        >
+          <ContactUs />
+        </Box>
+      </VStack>
+
+      <Footer />
+    </Box>
   );
 }
 

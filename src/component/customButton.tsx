@@ -1,8 +1,8 @@
 import { Button, keyframes } from "@chakra-ui/react";
 const glowAnimation = keyframes`
-  0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
+  0% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.35); }
+  50% { box-shadow: 0 0 28px rgba(59, 130, 246, 0.6); }
+  100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.35); }
 `;
 
 interface Props {
@@ -21,23 +21,26 @@ function CustomButton({
   height = false,
 }: Props) {
   return (
-    <a href="https://t.me/AddisGigsBot">
+    <a href="https://t.me/AddisGigsBot" target="_blank" rel="noreferrer">
       <Button
-        bg="blue.500"
+        bgGradient="linear(to-r, #3b82f6, #60a5fa)"
         color="white"
         fontWeight="bold"
         width={width ? width : undefined}
         height={height ? height : undefined}
         fontSize={fontSize ? fontSize : undefined}
-        px="6"
-        py="3"
+        px="7"
+        py="5"
         animation={
-          animation ? `${glowAnimation} 2s infinite ease-in-out` : undefined
+          animation ? `${glowAnimation} 2.5s infinite ease-in-out` : undefined
         }
-        borderRadius="25px"
-        _hover={{ bg: "blue.600", animation: "none" }}
-        _active={{ bg: "blue.700" }}
-        _focus={{ boxShadow: "0 0 8px rgba(99, 102, 241, 0.5)" }}
+        borderRadius="30px"
+        _hover={{
+          bgGradient: "linear(to-r, #2563eb, #3b82f6)",
+          animation: "none",
+        }}
+        _active={{ bgGradient: "linear(to-r, #1d4ed8, #2563eb)" }}
+        _focus={{ boxShadow: "0 0 16px rgba(59, 130, 246, 0.45)" }}
       >
         {title}
       </Button>
