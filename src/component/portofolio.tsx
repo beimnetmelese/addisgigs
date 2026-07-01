@@ -106,6 +106,7 @@ const PortfolioCard = ({
           w="full"
           startColor="rgba(255,255,255,0.08)"
           endColor="rgba(255,255,255,0.02)"
+          fadeDuration={0.4}
         >
           <Image
             src={image}
@@ -117,6 +118,12 @@ const PortfolioCard = ({
             transition="transform 0.5s"
             _hover={{ transform: "scale(1.05)" }}
             onLoad={() => setImageLoaded(true)}
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            style={{
+              contentVisibility: "auto",
+            }}
           />
         </Skeleton>
 

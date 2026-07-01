@@ -34,3 +34,23 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #3b82f6;
 }
+
+/* Image Optimization */
+img {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize lazy-loaded images */
+img[loading="lazy"] {
+  background-size: cover;
+  background-position: center;
+}
+
+/* GPU acceleration for transforms */
+.portfolio-card img {
+  transform: translateZ(0);
+  will-change: transform;
+}
