@@ -12,13 +12,20 @@ import {
   useBreakpointValue,
   Skeleton,
 } from "@chakra-ui/react";
-import { FaExternalLinkAlt, FaGithub, FaEye } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { useState } from "react";
-
-const floatAnimation = keyframes`
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
-`;
+import dipcomSchool from "../assets/dipcom school.png";
+import stock from "../assets/stock.png";
+import yetimtools from "../assets/yetimtools.png";
+import paradise from "../assets/paradise.png";
+import soma from "../assets/soma.png";
+import craving from "../assets/cravings.png";
+import amrogn from "../assets/amrogn.png";
+import hiFalafel from "../assets/hi flafel.png";
+import goldenplate from "../assets/goldenplate.png";
+import alchemist from "../assets/thealchemist.png";
+import unioncocktail from "../assets/unioncocktail.png";
+import choke from "../assets/choke.png";
 
 const shimmer = keyframes`
   0% { background-position: -200% center; }
@@ -32,6 +39,7 @@ interface Props {
   tags: string[];
   category: string;
   phone?: string;
+  image?: string;
 }
 
 const PortfolioCard = ({
@@ -41,53 +49,40 @@ const PortfolioCard = ({
   tags,
   category,
   phone,
+  image,
 }: Props) => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [screenshotError, setScreenshotError] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
-
-  // Use multiple screenshot APIs for better reliability
-  const screenshotUrl = `https://image.thum.io/get/width/600/crop/600/${encodeURIComponent(link)}`;
-  const fallbackScreenshot = `https://api.microlink.io/?url=${encodeURIComponent(link)}&screenshot=true&embed=screenshot.url`;
-
-  const handleImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>,
-  ) => {
-    const img = e.currentTarget;
-    // Try fallback API
-    fetch(fallbackScreenshot)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data?.screenshot?.url) {
-          img.src = data.screenshot.url;
-        } else {
-          setScreenshotError(true);
-        }
-      })
-      .catch(() => {
-        setScreenshotError(true);
-      })
-      .finally(() => {
-        setImageLoaded(true);
-      });
-  };
 
   return (
     <Box
+      as="a"
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
       w="100%"
       borderRadius="2xl"
       overflow="hidden"
-      bg="rgba(255, 255, 255, 0.03)"
-      border="1px solid rgba(255,255,255,0.06)"
+      bg="rgba(20, 20, 30, 0.8)"
+      border="1px solid rgba(59, 130, 246, 0.1)"
       transition="all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
       position="relative"
+      display="block"
+      textDecoration="none"
       _hover={{
         transform: isMobile
           ? "translateY(-4px)"
           : "translateY(-8px) scale(1.01)",
-        borderColor: "rgba(59, 130, 246, 0.3)",
-        boxShadow: "0 20px 60px rgba(0, 0, 0, 0.4)",
-        bg: "rgba(255, 255, 255, 0.06)",
+        borderColor: "rgba(59, 130, 246, 0.4)",
+        boxShadow: "0 20px 60px rgba(59, 130, 246, 0.15)",
+        bg: "rgba(30, 30, 50, 0.9)",
+      }}
+      _focus={{
+        outline: "none",
+        boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.3)",
+      }}
+      _active={{
+        textDecoration: "none",
       }}
     >
       {/* Animated gradient border */}
@@ -104,61 +99,40 @@ const PortfolioCard = ({
         pointerEvents="none"
       />
 
-      <Box position="relative" overflow="hidden" bg="#0a0a0f">
-        {!screenshotError ? (
-          <>
-            <Skeleton
-              isLoaded={imageLoaded}
-              h="220px"
-              w="full"
-              startColor="rgba(255,255,255,0.05)"
-              endColor="rgba(255,255,255,0.01)"
-            >
-              <Image
-                src={screenshotUrl}
-                alt={`${title} website preview`}
-                w="full"
-                h="220px"
-                objectFit="cover"
-                objectPosition="top"
-                transition="transform 0.5s"
-                _hover={{ transform: "scale(1.05)" }}
-                onLoad={() => setImageLoaded(true)}
-                onError={handleImageError}
-              />
-            </Skeleton>
-          </>
-        ) : (
-          <Box
+      <Box position="relative" overflow="hidden" bg="#0f0f1a">
+        <Skeleton
+          isLoaded={imageLoaded}
+          h="220px"
+          w="full"
+          startColor="rgba(255,255,255,0.08)"
+          endColor="rgba(255,255,255,0.02)"
+        >
+          <Image
+            src={image}
+            alt={`${title} website preview`}
             w="full"
             h="220px"
-            bg="linear-gradient(135deg, #0a0a0f, #1a1a2e)"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            flexDirection="column"
-            gap={2}
-          >
-            <Icon as={FaEye} boxSize="32px" color="#60a5fa" opacity="0.3" />
-            <Text color="gray.500" fontSize="14px">
-              {title}
-            </Text>
-          </Box>
-        )}
+            objectFit="cover"
+            objectPosition="top"
+            transition="transform 0.5s"
+            _hover={{ transform: "scale(1.05)" }}
+            onLoad={() => setImageLoaded(true)}
+          />
+        </Skeleton>
 
         {/* Category badge */}
         <Badge
           position="absolute"
           top="12px"
           left="12px"
-          bg="rgba(0,0,0,0.7)"
+          bg="rgba(0, 0, 0, 0.85)"
           color="#60a5fa"
           px="12px"
           py="4px"
           borderRadius="full"
           fontSize="10px"
-          backdropFilter="blur(10px)"
-          border="1px solid rgba(59,130,246,0.2)"
+          backdropFilter="blur(12px)"
+          border="1px solid rgba(59,130,246,0.25)"
         >
           {category}
         </Badge>
@@ -178,45 +152,19 @@ const PortfolioCard = ({
               tag && (
                 <Badge
                   key={i}
-                  bg="rgba(0,0,0,0.7)"
+                  bg="rgba(0, 0, 0, 0.85)"
                   color="#93c5fd"
                   px="10px"
                   py="3px"
                   borderRadius="full"
                   fontSize="10px"
-                  backdropFilter="blur(10px)"
-                  border="1px solid rgba(255,255,255,0.05)"
+                  backdropFilter="blur(12px)"
+                  border="1px solid rgba(93, 179, 253, 0.2)"
                 >
                   {tag}
                 </Badge>
               ),
           )}
-        </Box>
-
-        {/* Live indicator */}
-        <Box
-          position="absolute"
-          bottom="12px"
-          right="12px"
-          display="flex"
-          alignItems="center"
-          gap="6px"
-          bg="rgba(0,0,0,0.7)"
-          px="10px"
-          py="4px"
-          borderRadius="full"
-          backdropFilter="blur(10px)"
-        >
-          <Box
-            w="6px"
-            h="6px"
-            borderRadius="full"
-            bg="#22c55e"
-            animation={`${floatAnimation} 2s ease-in-out infinite`}
-          />
-          <Text fontSize="10px" color="#22c55e" fontWeight="500">
-            Live
-          </Text>
         </Box>
       </Box>
 
@@ -232,10 +180,11 @@ const PortfolioCard = ({
         {phone && (
           <HStack
             spacing={2}
-            bg="rgba(255,255,255,0.03)"
+            bg="rgba(59, 130, 246, 0.08)"
             px="12px"
             py="4px"
             borderRadius="full"
+            border="1px solid rgba(59, 130, 246, 0.15)"
           >
             <Text fontSize="11px" color="gray.500">
               📞
@@ -285,6 +234,7 @@ function Portfolio() {
       link: "https://school.dipcomtech.com/",
       tags: ["School", "Management", "React"],
       category: "⭐ Featured",
+      image: dipcomSchool,
     },
     {
       title: "Stock Management",
@@ -293,6 +243,7 @@ function Portfolio() {
       link: "https://stock.dipcomtech.com/",
       tags: ["Inventory", "Reservation", "Analytics"],
       category: "⭐ Featured",
+      image: stock,
     },
     {
       title: "Yetim Tools",
@@ -301,6 +252,25 @@ function Portfolio() {
       link: "https://yetimtools.vercel.app/",
       tags: ["Tools", "Utilities", "React"],
       category: "⭐ Featured",
+      image: yetimtools,
+    },
+    {
+      title: "Golden Plate",
+      description:
+        "Fine dining restaurant website with elegant design and menu presentation.",
+      link: "https://golden-plate-kappa.vercel.app/",
+      tags: ["Next.js", "Restaurant"],
+      category: "Client Site",
+      image: goldenplate,
+    },
+    {
+      title: "Alchemist",
+      description:
+        "Creative agency website with immersive design and interactive elements.",
+      link: "https://alchemist-nu.vercel.app/",
+      tags: ["Framer", "Creative"],
+      category: "Client Site",
+      image: alchemist,
     },
     // Client websites (with phone numbers)
     {
@@ -310,7 +280,7 @@ function Portfolio() {
       link: "https://paradise-sable.vercel.app/",
       tags: ["React", "Tailwind", "Business"],
       category: "Client Site",
-      phone: "091 131 4944",
+      image: paradise,
     },
     {
       title: "Soma",
@@ -319,7 +289,7 @@ function Portfolio() {
       link: "https://soma-zeta.vercel.app/",
       tags: ["Vite", "Tailwind", "Modern"],
       category: "Client Site",
-      phone: "099 926 6392",
+      image: soma,
     },
     {
       title: "Amrogn Chicken",
@@ -328,7 +298,7 @@ function Portfolio() {
       link: "https://amrogn-chicken.vercel.app/",
       tags: ["Next.js", "E-commerce"],
       category: "Client Site",
-      phone: "0978367070",
+      image: amrogn,
     },
     {
       title: "Hi Falafel",
@@ -337,26 +307,9 @@ function Portfolio() {
       link: "https://hi-falafel.vercel.app/",
       tags: ["React", "Food", "Ordering"],
       category: "Client Site",
-      phone: "0917700644",
+      image: hiFalafel,
     },
-    {
-      title: "Golden Plate",
-      description:
-        "Fine dining restaurant website with elegant design and menu presentation.",
-      link: "https://golden-plate-kappa.vercel.app/",
-      tags: ["Next.js", "Restaurant"],
-      category: "Client Site",
-      phone: "097 574 5252",
-    },
-    {
-      title: "Alchemist",
-      description:
-        "Creative agency website with immersive design and interactive elements.",
-      link: "https://alchemist-nu.vercel.app/",
-      tags: ["Framer", "Creative"],
-      category: "Client Site",
-      phone: "098 989 0102",
-    },
+
     {
       title: "Rofam",
       description:
@@ -364,7 +317,7 @@ function Portfolio() {
       link: "https://rofam.vercel.app/",
       tags: ["React", "Business"],
       category: "Client Site",
-      phone: "090 100 6858",
+      image: craving,
     },
     {
       title: "Union Cocktail",
@@ -373,7 +326,7 @@ function Portfolio() {
       link: "https://union-cocktail.vercel.app/",
       tags: ["Bar", "Menu"],
       category: "Client Site",
-      phone: "+25111123 4567",
+      image: unioncocktail,
     },
     {
       title: "Choke Burger",
@@ -382,7 +335,7 @@ function Portfolio() {
       link: "https://choke-burger.vercel.app/",
       tags: ["Food", "Ordering"],
       category: "Client Site",
-      phone: "090 861 6164",
+      image: choke,
     },
   ];
 
@@ -458,8 +411,8 @@ function Portfolio() {
         {/* View All CTA */}
         <Box w="full" display="flex" justifyContent="center" pt={4}>
           <HStack
-            bg="rgba(255,255,255,0.03)"
-            border="1px solid rgba(255,255,255,0.06)"
+            bg="rgba(20, 20, 35, 0.7)"
+            border="1px solid rgba(59, 130, 246, 0.15)"
             borderRadius="2xl"
             px={{ base: 6, md: 10 }}
             py={{ base: 4, md: 6 }}
@@ -470,8 +423,8 @@ function Portfolio() {
             maxW="500px"
             transition="all 0.3s"
             _hover={{
-              borderColor: "rgba(59,130,246,0.2)",
-              bg: "rgba(255,255,255,0.05)",
+              borderColor: "rgba(59, 130, 246, 0.3)",
+              bg: "rgba(30, 30, 50, 0.8)",
             }}
           >
             <Text color="gray.300" fontSize="14px">
