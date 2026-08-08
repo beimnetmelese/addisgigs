@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://addisgigs.com/sitemap.xml
+Sitemap: https://addisgigs.tech/sitemap.xml
