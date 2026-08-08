@@ -86,6 +86,7 @@ function Hero() {
         textAlign="center"
       >
         <Text
+          as="h1"
           fontWeight="800"
           color="white"
           fontSize={fontSize}

@@ -149,7 +149,7 @@ const PricingCard = ({
       <VStack spacing={6} align="start" position="relative" zIndex={1}>
         {/* Header with icon */}
         <HStack spacing={3} w="full" justifyContent="space-between">
-          <Text fontSize="22px" fontWeight="700" color="white">
+          <Text as="h3" fontSize="22px" fontWeight="700" color="white">
             {title}
           </Text>
           <Icon
@@ -384,6 +384,7 @@ function Price() {
           </Badge>
 
           <Text
+            as="h2"
             fontSize={{ base: "32px", md: "48px", lg: "56px" }}
             fontWeight="800"
             color="white"

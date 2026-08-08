@@ -139,7 +139,7 @@ const ServiceCard = ({ title, description, icon, features, index }: Props) => {
               : "🤖 AI Powered"}
         </Badge>
 
-        <Text fontSize="xl" fontWeight="700" color="white">
+        <Text as="h3" fontSize="xl" fontWeight="700" color="white">
           {title}
         </Text>
 
@@ -324,6 +324,7 @@ function Service() {
           </Badge>
 
           <Text
+            as="h2"
             fontSize={{ base: "32px", md: "48px", lg: "56px" }}
             fontWeight="800"
             color="white"

@@ -32,6 +32,7 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
+import type { IconType } from "react-icons";
 
 const shimmer = keyframes`
   0% { background-position: -200% center; }
@@ -41,7 +42,7 @@ const shimmer = keyframes`
 interface ValueItemProps {
   title: string;
   description: string;
-  icon: any;
+  icon: IconType;
   index: number;
 }
 
@@ -102,7 +103,7 @@ const ValueItem = ({ title, description, icon, index }: ValueItemProps) => {
           <Icon as={icon} color="#60a5fa" boxSize="20px" />
         </Box>
         <Box>
-          <Text color="white" fontWeight="600" fontSize="16px" mb={1}>
+          <Text as="h3" color="white" fontWeight="600" fontSize="16px" mb={1}>
             {title}
           </Text>
           <Text color="gray.400" fontSize="14px" lineHeight="1.6">
@@ -117,7 +118,7 @@ const ValueItem = ({ title, description, icon, index }: ValueItemProps) => {
 interface StatItemProps {
   number: string;
   label: string;
-  icon: any;
+  icon: IconType;
 }
 
 const StatItem = ({ number, label, icon }: StatItemProps) => {
@@ -289,6 +290,7 @@ function AboutUs() {
           </Badge>
 
           <Text
+            as="h2"
             fontSize={{ base: "32px", md: "48px", lg: "56px" }}
             fontWeight="800"
             color="white"
@@ -342,7 +344,7 @@ function AboutUs() {
           >
             <VStack align="start" spacing={4}>
               <Icon as={FaRocket} color="#60a5fa" boxSize="28px" />
-              <Text fontSize="24px" fontWeight="700" color="white">
+              <Text as="h3" fontSize="24px" fontWeight="700" color="white">
                 Our Mission
               </Text>
               <Text fontSize="15px" color="gray.300" lineHeight="1.8">
@@ -372,7 +374,7 @@ function AboutUs() {
           >
             <VStack align="start" spacing={4}>
               <Icon as={FaBrain} color="#8b5cf6" boxSize="28px" />
-              <Text fontSize="24px" fontWeight="700" color="white">
+              <Text as="h3" fontSize="24px" fontWeight="700" color="white">
                 Our Vision
               </Text>
               <Text fontSize="15px" color="gray.300" lineHeight="1.8">
@@ -441,7 +443,7 @@ function AboutUs() {
               >
                 <VStack align="start" spacing={3}>
                   <Icon as={service.icon} color="#60a5fa" boxSize="24px" />
-                  <Text fontSize="18px" fontWeight="600" color="white">
+                  <Text as="h3" fontSize="18px" fontWeight="600" color="white">
                     {service.title}
                   </Text>
                   <Text fontSize="14px" color="gray.400" lineHeight="1.6">

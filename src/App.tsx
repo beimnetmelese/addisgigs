@@ -35,7 +35,7 @@ function App() {
         <NavBar />
       </Box>
 
-      <VStack spacing={0} align="stretch" flex="1">
+      <VStack as="main" spacing={0} align="stretch" flex="1">
         {/* Hero - Full width, no padding */}
         <Box id="home" as="section">
           <Hero />

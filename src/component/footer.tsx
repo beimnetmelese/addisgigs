@@ -27,6 +27,7 @@ function Footer() {
 
   return (
     <Box
+      as="footer"
       bg="#0a0a0f"
       borderTop="1px solid rgba(255,255,255,0.05)"
       color="white"
@@ -41,7 +42,7 @@ function Footer() {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8}>
           {/* Logo and About */}
           <VStack align="start" spacing={4}>
-            <Image src={logo} boxSize="50px" objectFit="contain" />
+            <Image src={logo} alt="AddisGigs" boxSize="50px" objectFit="contain" />
             <Text fontSize="14px" color="gray.400" lineHeight="1.8">
               Empowering businesses with cutting-edge technology solutions. We
               build web apps, mobile apps, and Telegram bots.
@@ -96,7 +97,7 @@ function Footer() {
 
           {/* Quick Links */}
           <VStack align="start" spacing={3}>
-            <Text fontSize="16px" fontWeight="700" color="white">
+            <Text as="h2" fontSize="16px" fontWeight="700" color="white">
               Quick Links
             </Text>
             <Link href="#home" _hover={{ color: "#60a5fa" }}>
@@ -121,7 +122,7 @@ function Footer() {
 
           {/* Services */}
           <VStack align="start" spacing={3}>
-            <Text fontSize="16px" fontWeight="700" color="white">
+            <Text as="h2" fontSize="16px" fontWeight="700" color="white">
               Services
             </Text>
             <Text
@@ -163,7 +164,7 @@ function Footer() {
 
           {/* Contact Info */}
           <VStack align="start" spacing={3}>
-            <Text fontSize="16px" fontWeight="700" color="white">
+            <Text as="h2" fontSize="16px" fontWeight="700" color="white">
               Contact Info
             </Text>
             <HStack spacing={3}>

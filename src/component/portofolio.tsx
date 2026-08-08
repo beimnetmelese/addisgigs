@@ -176,7 +176,7 @@ const PortfolioCard = ({
       </Box>
 
       <VStack p={6} align="start" spacing={3}>
-        <Text fontSize="lg" fontWeight="700" color="white" noOfLines={1}>
+        <Text as="h3" fontSize="lg" fontWeight="700" color="white" noOfLines={1}>
           {title}
         </Text>
 
@@ -381,6 +381,7 @@ function Portfolio() {
           </Badge>
 
           <Text
+            as="h2"
             fontSize={{ base: "32px", md: "48px", lg: "56px" }}
             fontWeight="800"
             color="white"

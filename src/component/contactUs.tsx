@@ -19,6 +19,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import {
   FaPhone,
   FaEnvelope,
@@ -34,13 +35,14 @@ function ContactUs() {
     message: "",
   });
 
-  const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.currentTarget;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.currentTarget;
     fetch("https://formsubmit.co/addisgigs@gmail.com", {
       method: "POST",
       body: new FormData(form),
@@ -68,6 +70,7 @@ function ContactUs() {
             Contact Us
           </Text>
           <Text
+            as="h2"
             fontSize={{ base: "32px", md: "48px" }}
             fontWeight="800"
             color="white"
@@ -100,7 +103,7 @@ function ContactUs() {
         >
           {/* Left Side */}
           <VStack align="start" flex="1" spacing={6}>
-            <Heading fontSize="24px" fontWeight="700" color="white">
+            <Heading as="h3" fontSize="24px" fontWeight="700" color="white">
               Let's Build Something Amazing Together
             </Heading>
             <Text fontSize="15px" color="gray.400" lineHeight="1.8">

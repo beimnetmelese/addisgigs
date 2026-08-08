@@ -123,6 +123,7 @@ function NavBar() {
 
   return (
     <MotionBox
+      as="header"
       position="fixed"
       top="0"
       left="0"
@@ -139,7 +140,7 @@ function NavBar() {
         zIndex: 1000,
       }}
     >
-      <Container maxW="1400px" px={{ base: "20px", md: "40px" }}>
+      <Container as="nav" aria-label="Main navigation" maxW="1400px" px={{ base: "20px", md: "40px" }}>
         <HStack
           justifyContent="space-between"
           alignItems="center"
@@ -160,6 +161,7 @@ function NavBar() {
           >
             <Image
               src={logo}
+              alt="AddisGigs"
               boxSize="42px"
               objectFit="contain"
               filter="drop-shadow(0 0 20px rgba(59, 130, 246, 0.2))"
