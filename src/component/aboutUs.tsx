@@ -30,6 +30,7 @@ import {
   FaHeart,
   FaBrain,
   FaGlobe,
+  FaDatabase,
 } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 import type { IconType } from "react-icons";
@@ -233,6 +234,16 @@ function AboutUs() {
       description: "Intelligent bots with AI integration",
       icon: FaRobot,
     },
+    {
+      title: "ERP Software Development",
+      description: "Connected systems for finance, inventory, and operations",
+      icon: FaDatabase,
+    },
+    {
+      title: "AI Integrations",
+      description: "AI capabilities that automate workflows and surface insights",
+      icon: FaBrain,
+    },
   ];
 
   return (
@@ -319,7 +330,8 @@ function AboutUs() {
             AddisGigs is a forward-thinking technology company dedicated to
             empowering businesses through innovative digital solutions. We
             specialize in building cutting-edge web applications, mobile apps,
-            and intelligent Telegram bots that drive growth and efficiency.
+            intelligent Telegram bots, ERP software, and AI integrations that
+            drive growth and efficiency.
           </Text>
         </VStack>
 
@@ -419,7 +431,7 @@ function AboutUs() {
             </Text>
           </VStack>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} w="full">
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} w="full">
             {services.map((service, index) => (
               <Box
                 key={index}

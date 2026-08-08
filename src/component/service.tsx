@@ -17,6 +17,8 @@ import {
   FaTelegramPlane,
   FaCrown,
   FaArrowRight,
+  FaDatabase,
+  FaBrain,
 } from "react-icons/fa";
 import { useRef, useEffect, useState } from "react";
 
@@ -136,7 +138,11 @@ const ServiceCard = ({ title, description, icon, features, index }: Props) => {
             ? "🚀 Most Popular"
             : index === 1
               ? "⭐ Premium"
-              : "🤖 AI Powered"}
+              : title === "ERP Software Development"
+                ? "Business Systems"
+                : title === "AI Integrations"
+                  ? "AI Powered"
+                  : "Automation"}
         </Badge>
 
         <Text as="h3" fontSize="xl" fontWeight="700" color="white">
@@ -260,6 +266,30 @@ function Service() {
         "AI Integration",
         "Real-time Notifications",
         "Web App Integration",
+      ],
+    },
+    {
+      title: "ERP Software Development",
+      description:
+        "Build tailored ERP systems that connect finance, inventory, operations, and reporting in one place.",
+      icon: FaDatabase,
+      features: [
+        "Business Process Automation",
+        "Inventory & Finance Modules",
+        "Custom Dashboards",
+        "Secure Role Management",
+      ],
+    },
+    {
+      title: "AI Integrations",
+      description:
+        "Integrate practical AI capabilities into your products and workflows to automate work and improve decisions.",
+      icon: FaBrain,
+      features: [
+        "AI-Powered Assistants",
+        "Workflow Automation",
+        "Intelligent Data Insights",
+        "API & System Integration",
       ],
     },
   ];

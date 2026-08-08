@@ -151,6 +151,20 @@ function Footer() {
               color="gray.400"
               _hover={{ color: "#60a5fa" }}
             >
+              ERP Software
+            </Text>
+            <Text
+              fontSize="14px"
+              color="gray.400"
+              _hover={{ color: "#60a5fa" }}
+            >
+              AI Integrations
+            </Text>
+            <Text
+              fontSize="14px"
+              color="gray.400"
+              _hover={{ color: "#60a5fa" }}
+            >
               UI/UX Design
             </Text>
             <Text
