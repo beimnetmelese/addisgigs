@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://addisgigs.pro.et/sitemap.xml
+Sitemap: https://addisgigs.vercel.app/sitemap.xml
